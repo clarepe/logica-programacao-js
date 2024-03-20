@@ -3,12 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafio 3</title>
-   
-   
+    <title>Conversor de Temperatura</title>
 </head>
 <body>
     <style>body{background-color: #421c64;}</style>
-    <script src="desafio3.js"></script>
+    <h1>Conversor de Temperatura</h1>
+
+    <form id="conversorForm">
+        <label for="temperaturaAtual">Temperatura Atual:</label>
+        <input type="number" id="temperaturaAtual" required>
+        
+        <label for="escalaAtual">Escala Atual:</label>
+        <select id="escalaAtual" required>
+            <option value="celsius">Celsius</option>
+            <option value="fahrenheit">Fahrenheit</option>
+            <option value="kelvin">Kelvin</option>
+        </select>
+        
+        <label for="escalaConversao">Escala de Conversão:</label>
+        <select id="escalaConversao" required>
+            <option value="celsius">Celsius</option>
+            <option value="fahrenheit">Fahrenheit</option>
+            <option value="kelvin">Kelvin</option>
+        </select>
+        
+        <button type="button" onclick="converterTemperatura()">Calcular</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function converterTemperatura() {
+            const temperaturaAtual = parseFloat(document.getElementById("temperaturaAtual").value);
+            const escalaAtual = document.getElementById("escalaAtual").value;
+            const escalaConversao = document.getElementById("escalaConversao").value;
+            let temperaturaConvertida;
+
+            if (escalaAtual === 'celsius' && escalaConversao === 'fahrenheit') {
+                temperaturaConvertida = (temperaturaAtual * 9/5) + 32;
+            } else if (escalaAtual === 'celsius' && escalaConversao === 'kelvin') {
+                temperaturaConvertida = temperaturaAtual + 273.15;
+            } else if (escalaAtual === 'fahrenheit' && escalaConversao === 'celsius') {
+                temperaturaConvertida = (temperaturaAtual - 32) * 5/9;
+            } else if (escalaAtual === 'fahrenheit' && escalaConversao === 'kelvin') {
+                temperaturaConvertida = (temperaturaAtual + 459.67) * 5/9;
+            } else if (escalaAtual === 'kelvin' && escalaConversao === 'celsius') {
+                temperaturaConvertida = temperaturaAtual - 273.15;
+            } else if (escalaAtual === 'kelvin' && escalaConversao === 'fahrenheit') {
+                temperaturaConvertida = temperaturaAtual * 9/5 - 459.67;
+            } else {
+                document.getElementById('resultado').innerText = 'Impossível reconhecer os dados, verifique se digitou tudo corretamente.';
+                return; // Encerra a função se os dados forem inválidos
+            }
+
+            document.getElementById('resultado').innerHTML = `A temperatura atual em ${escalaConversao.charAt(0).toUpperCase() + escalaConversao.slice(1)} é ${temperaturaConvertida.toFixed(2)}`;
+        }
+    </script>
 </body>
 </html>
