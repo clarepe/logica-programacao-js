@@ -1,38 +1,76 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desafio 4</title>
-   
-   
 </head>
+
 <body>
 
-    <h1>Programinhas!!!</h1>
+    <h1>Calcule seu IMC</h1>
 
-    <label for="peso">Peso:</label> 
-    <input type="number" id="peso" step="0.5" min="0" max="1000">
+    <form action="" id="formIMC">
+        <label for="peso">Peso:</label>
+        <input type="number" id="peso" step="0.5" min="0" max="1000">
 
-    <label for="altura">Altura:</label>
-    <input type="number" id="altura" step="0.01" min="0" max="3">
+        <label for="altura">Altura:</label>
+        <input type="number" id="altura" step="0.01" min="0" max="3">
 
-    <button type="button" id="btCalcIMC">Calcular IMC</button>
-    <button type="button">Limpar</button>
-    <button type="button" onclick="calculaImc()">Calculadora IMC</button>
-    <button type="button" onclick="converteTemperatura()">Conversor de Temperatura</button>
+        <button type="button" id="btCalcIMC">Calcular IMC</button>
+        <button type="reset" id="btlimpaIMC">Limpar</button>
+    </form>
 
-    <style>body{background-color: #e6b57d; color: rgb(250, 16, 16);text-align: center;}</style>
+    <div id="resultadoIMC"></div>
+    <h2>Conversor de temperatura</h2>
+    <form action="">
+        <label for="">Valor de temperatura</label>
+        <input type="number" id="">
+
+        <label for="">Escala atual</label>
+        <select  id="Escala atual">
+            <option value="C" selected>Celsius</option>
+            <option value="F">Fahrenheit</option>
+            <option value="K">Kelvin</option>
+        </select>
+    </form>
+
+    <style>
+        body {
+            background-color: #e6b57d;
+            color: #fa1010;
+            text-align: center;
+        }
+    </style>
+
     <script src="desafio2.js"></script>
     <script src="desafio3.js"></script>
     <script>
-        document.querySelector('#btCalcIMC').addEventListener('click',function(){
-            const peso = document.querySelector('#peso').Value;
-            const altura=document.querySelector('#altura').Value;
-            const imc =calculaImc(peso,altura);
+        document.querySelector('#btCalcIMC').addEventListener('click', function () {
+            const peso = parseFloat(document.getElementById('peso').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+            const imc = calculaImc(peso, altura);
             console.log(imc);
-        })
+            const resultadoIMC = document.querySelector('#resultadoIMC');
+            
+            if(resultadoIMC) {
+                resultadoIMC.innerHTML = imc;
+            } else {
+                console.error("Elemento #resultadoIMC não encontrado.");
+            }
+            
+        });
+        document.querySelector('#btlimpaIMC').addEventListener('click',function(){
+            document.querySelector('#resultadoIMC').innerHTML = '';
+        
+        });
+
+
+
+
     </script>
 
 </body>
+
 </html>

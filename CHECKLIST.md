@@ -27,4 +27,8 @@ code -r <repositorio_local>/
 ~~~
 12. Faça o login no Vs Code local para sincronizar suas exetenções e temas.
 13. Ative o salvamento automatico _(AutoSave)_: Arquivo>Salvamento automático.
+14. clonar com 1 comando : 
+~~~git
+git clone https://github.com/<usuario>/<repositorio>.git | code -r "e o nome do diretorio a ser aberto na sequencia"
+
 

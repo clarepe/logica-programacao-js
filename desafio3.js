@@ -1,5 +1,7 @@
-function converteTemperatura() {
-    
+function converteTemperatura(varCelsios,varFahrenheit,varKelvi) {
+    let celsius;
+    let fahrenheit;
+    let kelvin;
     const
         temperaturaAtual = parseFloat(window.prompt('Digite a temperatura atual entre Fahrenheit, Celsius ou Kelvin:')),
         escalaAtual = window.prompt('Escolha a escala atual Fahrenheit, Celsius ou Kelvin').toLowerCase(),
