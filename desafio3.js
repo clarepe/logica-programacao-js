@@ -1,36 +1,73 @@
-function converteTemperatura(varCelsios,varFahrenheit,varKelvi) {
-    let celsius;
-    let fahrenheit;
-    let kelvin;
-    const
-        temperaturaAtual = parseFloat(window.prompt('Digite a temperatura atual entre Fahrenheit, Celsius ou Kelvin:')),
-        escalaAtual = window.prompt('Escolha a escala atual Fahrenheit, Celsius ou Kelvin').toLowerCase(),
-        conversao = window.prompt('Escolha a escala a ser convertida Fahrenheit, Celsius ou Kelvin').toLowerCase();
+function converteTemperatura(temperaturaAtual, escalaAtual, escalaConversao) {
 
-    const
-        CelFahr = (temperaturaAtual * 9 / 5) + 32,
-        CelKev = temperaturaAtual + 273.15,
-        FahrCel = (temperaturaAtual - 32) * 5 / 9,
-        FahrKel = (temperaturaAtual + 459.67) * 5 / 9,
-        KelCel = (temperaturaAtual) - 273.15,
-        KelFahr = temperaturaAtual * 9 / 5 - 459.67;
-
-    if (escalaAtual === 'c' && conversao === 'f') {
-        window.alert(`A temperatura atual em Fahrenheit é ${CelFahr.toFixed(2)}`);
-    } else if (escalaAtual === 'c' && conversao === 'k') {
-        window.alert(`A tempetura atual em Kelvin é ${CelKev.toFixed(2)}`);
-    } else if (escalaAtual === 'f' && conversao === 'c') {
-        window.alert(`A temperatura atual em Celsius é ${FahrCel.toFixed(2)}`);
-    } else if (escalaAtual === 'f' && conversao === 'k') {
-        window.alert(`A temperatura atual em Kevin é ${FahrKel.toFixed(2)}`);
-    } else if (escalaAtual === 'k' && conversao === 'c') {
-        window.alert(`A temperatura atual em  Celsius é ${KelCel.toFixed(2)}`);
-    } else if (escalaAtual === 'k' && conversao === 'f') {
-        window.alert(`A temperatura atual em Fahrenheit é ${KelFahr.toFixed(2)}`);
+    let temperaturaConvertida, msgErro = 'Ok';
+    
+    if (!isNaN(temperaturaAtual)) {
+    
+        escalaAtual = escalaAtual.toUpperCase();
+        escalaConversao = escalaConversao.toUpperCase();
+        
+    
+        if (escalaAtual === 'Cº') {
+    
+            if (escalaConversao === 'K') {
+                temperaturaConvertida = temperaturaAtual + 273.15;
+    
+            } else if (escalaConversao === 'Fº') {
+                temperaturaConvertida = (temperaturaAtual * 9 / 5) + 32;
+    
+            } else if (escalaConversao === 'Cº') {
+                msgErro = `ERRO: Escala selecionada: ${escalaConversao}. Selecione uma escala de CONVERSÃO diferente da ATUAL.`;
+    
+            } else {
+                msgErro = `ERRO: Escala selecionada: ${escalaConversao}. Essa escala não existe ou não está disponível neste programa.`;
+            }
+    
+        } else if (escalaAtual === 'Fº') {
+    
+            if (escalaConversao === 'K') {
+                temperaturaConvertida = (temperaturaAtual + 459.67) * 5 / 9;
+    
+            } else if (escalaConversao === 'Cº') {
+                temperaturaConvertida = (temperaturaAtual - 32) * 5 / 9;
+    
+            } else if (escalaConversao === 'Fº') {
+                msgErro = `ERRO: Escala selecionada: ${escalaConversao}. Selecione uma escala de CONVERSÃO diferente da ATUAL.`;
+    
+            } else {
+                msgErro = `ERRO: Escala selecionada: ${escalaConversao}. Essa escala não existe ou não está disponível neste programa.`;
+            }
+    
+        } else if (escalaAtual === 'K') {
+    
+            if (escalaConversao === 'Cº') {
+                temperaturaConvertida = temperaturaAtual - 273.15;
+    
+            } else if (escalaConversao === 'Fº') {
+                temperaturaConvertida = temperaturaAtual * 9 / 5 - 459.67;
+    
+            } else if (escalaConversao === 'K') {
+                msgErro = `ERRO: Escala selecionada: ${escalaConversao}. Selecione uma escala de CONVERSÃO diferente da ATUAL.`;
+    
+            } else {
+                msgErro = `ERRO: Escala selecionada: ${escalaConversao}. Essa escala não existe ou não está disponível neste programa.`;
+            }
+    
+        } else {
+            msgErro = `ERRO: Escala ATUAL selecionada: ${escalaAtual}. A escala ATUAL não existe ou não está disponível neste programa.`;
+        }
+    
+    } else {
+        msgErro = 'ERRO: O número digitado para conversão não é um número válido.';
     }
-    else {
-        window.alert('Impossivel reconhecer os dados, verifique se digitou tudo corretamente')
-    }
 
+    // retornando em JSON - JavaScript Object Notation
+    return {
+        temperaturaAtual: temperaturaAtual,
+        escalaAtual: escalaAtual,
+        escalaConversao: escalaConversao,
+        temperaturaConvertida: temperaturaConvertida,
+        msgErro: msgErro
+    }; 
 
 }
