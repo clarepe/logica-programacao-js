@@ -1,33 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Englebert&family=Londrina+Solid:wght@100;300;400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-*{
-    margin: 0px;
-    padding: 0px;
-    background-color: #484760;
-    color: #f0f8ff;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o corpo da página tenha pelo menos a altura da viewport */
+}
+
+footer {
+    color: darkblue;
+    text-align: center;
+    font-size:5px;
+    margin-top: auto; /* Empurra o rodapé para o final da página */
+}
+
+body {
+    background-color: #e5c15e;
+    color: #f0f8ff;
+    font-family: Arial, sans-serif; /* Caso as fontes importadas não estejam disponíveis */
+}
+
 #controla-Buttons {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 20px;
-    margin-left: 60px;
-    margin-right: 60px;
-    border: 3px solid black;
+    margin: 20px 5%;
+    background-color: #f0f8ff;
+    border-radius: 2px;
+    border-color: crimson;
+    box-shadow: 1px 1px black;
 }
+
 button {
-    padding: 10px 20px;
+    padding: 5px 10px;
     margin: 10px;
-    font-size: 16px;
+    font-size: 1rem; /* Alterado para unidade relativa */
     border: none;
-    border-radius: 5px;
+    border-radius: 2px;
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    text-shadow: .9px .1px .1px black;
 }
 
 button:hover {
     background-color: #00ee08;
-  
+}
+
+#h1-principal {
+    color: #eeecec;
+    text-align: center;
+    background-color: #007bff;
+    padding: 5px;
+    font-family: "Londrina Solid", sans-serif;
+    text-shadow: .9px .1px .1px black;
+}
+
+#h2-principal {
+    text-align: center;
+    font-size: 1.2rem; /* Alterado para unidade relativa */
+    margin-top: 22px;
+    color: #007bff;
+    text-shadow: .9px .1px .1px black;
+    font-family: "Londrina Solid", sans-serif;
+    font-weight: 100;
+}
+
+/* Media queries para ajustar o layout em dispositivos de diferentes tamanhos */
+
+@media (max-width: 768px) {
+    /* Estilos para telas menores que 768px */
+    #controla-Buttons {
+        margin: 20px 2%;
+    }
+}
+#btIncial{
+    padding: 5px 2px;
+    margin: 10px;
+    font-size: 1rem; /* Alterado para unidade relativa */
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    text-shadow: .9px .1px .1px black;
 }
