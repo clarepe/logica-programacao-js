@@ -9,15 +9,17 @@
 }
 body {
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     min-height: 100vh; /* Garante que o corpo da página tenha pelo menos a altura da viewport */
+    
 }
 
 footer {
     color: darkblue;
     text-align: center;
-    font-size:5px;
+    font-size:10px;
     margin-top: auto; /* Empurra o rodapé para o final da página */
+
 }
 
 body {
@@ -32,10 +34,12 @@ body {
     align-items: center;
     flex-direction: column;
     margin: 20px 5%;
-    background-color: #f0f8ff;
+    background-color:  #007bff;
     border-radius: 2px;
     border-color: crimson;
     box-shadow: 1px 1px black;
+    margin-left: 300px;
+    margin-right: 300px;
 }
 
 button {
@@ -44,13 +48,14 @@ button {
     font-size: 1rem; /* Alterado para unidade relativa */
     border: none;
     border-radius: 2px;
-    background-color: #007bff;
+    background-color:#451ea7;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     text-shadow: .9px .1px .1px black;
+    
 }
 
 button:hover {
