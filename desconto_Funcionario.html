@@ -53,29 +53,6 @@
         function openApp(url) {
         window.location.href = url;
     }
-    function calcularTotal() {
-        // Inicializa uma variável total para armazenar a soma dos preços das roupas selecionadas.
-        var total = 0;
-    
-        // Seleciona todos os elementos de entrada do tipo checkbox que estão dentro de elementos com a classe "roupa".
-        var roupas = document.querySelectorAll('.roupa input[type="checkbox"]');
-        
-        // Itera sobre cada elemento de roupa encontrado.
-        roupas.forEach(function(roupa) {
-            // Verifica se o checkbox está marcado.
-            if (roupa.checked) {
-                // Se o checkbox estiver marcado, obtém o preço da roupa.
-                // Primeiro, encontra o elemento de preço (span) que está no mesmo nível do checkbox.
-                var preco = parseFloat(roupa.nextElementSibling.querySelector('span').textContent.replace('R$', '').trim());
-                // Converte o preço para um número de ponto flutuante (float).
-                
-                // Adiciona o preço da roupa ao total.
-                total += preco;
-            }
-        })
-        // Define o valor do campo de entrada 'Valor_da_compra' como o total calculado, formatado com duas casas decimais.
-         document.getElementById('Valor_da_compra').value = total.toFixed(2);
-    };
     
     </script>
     <footer>
