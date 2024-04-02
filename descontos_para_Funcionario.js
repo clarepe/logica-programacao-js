@@ -1,12 +1,22 @@
 
 
 function aplicarDesconto() {
-    var valorCompra = parseFloat(document.getElementById('Valor_da_compra').value);
-    var tipoCliente = document.getElementById('escalaLoja').value;
-    var desconto;
+    let desconto;
 
-    // Define o desconto baseado no tipo de cliente
-    if (tipoCliente === 'normal') {
+    
+    if (tipoCliente === 'cliente') {
         desconto = 0; 
     }
+    else if(tipoCliente==='clienteVip'){
+        desconto =10;
+    }
+    else if(tipoCliente==='funcionarios'){
+        desconto = 20;
+    }
+
+    let valorComDesconto=valorCompra-(valorCompra*(desconto/100));
+
+    document.getElementById('valorCompra').value=valorComDesconto.toFixed(2);
+    return desconto;
+
 }

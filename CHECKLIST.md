@@ -31,4 +31,6 @@ code -r <repositorio_local>/
 ~~~git
 git clone https://github.com/<usuario>/<repositorio>.git | code -r "e o nome do diretorio a ser aberto na sequencia"
 
+15.estudar :https://nextjs.org/
 
+16. (To exit, press Ctrl+C again or Ctrl+D or type .exit) para ou sai do processo no terminal

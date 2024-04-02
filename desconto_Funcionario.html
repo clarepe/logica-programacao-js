@@ -26,21 +26,22 @@
  
          <!-- Adicione roupas preços  -->
          <div class="roupa">
-             <input type="checkbox" id="roupa1" onclick="calcularTotal()">
-             <label for="roupa2">   
-                <p>Roupa 2</p>
+             
+             <label for="roupa1">   
+                <p>Roupa 1</p>
                 <span>R$ 80,00</span>
              </label>
             
          </div>
  
          <div class="roupa">
-             <input type="checkbox" id="roupa2" onclick="calcularTotal()">
+           
              <label for="roupa2">
                  <p>Roupa 2</p>
                  <span>R$ 160,00</span>
              </label>
          </div>
+         <button type="button" id="btdesconto" onclick="openApp('aplicarDesconto')">Avançar</button>
  
        
 
@@ -50,8 +51,11 @@
     </main>
     <script src="descontos_para_funcionarios.js"></script>
     <script>
-        function openApp(url) {
-        window.location.href = url;
+       
+    
+    function lojaDesconto(){
+        let valorTotal=0;
+        
     }
     
     </script>
