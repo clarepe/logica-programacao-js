@@ -11,6 +11,9 @@ body {
     display: flex;
     flex-direction:column;
     min-height: 100vh; /* Garante que o corpo da página tenha pelo menos a altura da viewport */
+    background-color: #e5c15e;
+    color: #f0f8ff;
+    font-family: Arial, sans-serif; /* Caso as fontes importadas não estejam disponíveis */
     
 }
 
@@ -22,11 +25,7 @@ footer {
 
 }
 
-body {
-    background-color: #e5c15e;
-    color: #f0f8ff;
-    font-family: Arial, sans-serif; /* Caso as fontes importadas não estejam disponíveis */
-}
+
 
 #controla-Buttons {
     display: flex;
@@ -81,7 +80,7 @@ button:hover {
     font-weight: 100;
 }
 
-/* Media queries para ajustar o layout em dispositivos de diferentes tamanhos */
+/* Medidas para ajustar o layout em dispositivos de diferentes tamanhos */
 
 @media (max-width: 768px) {
     /* Estilos para telas menores que 768px */

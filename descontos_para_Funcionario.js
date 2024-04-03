@@ -2,6 +2,7 @@
 
 function aplicarDesconto() {
     let desconto;
+    let mensagemDeERRO;
 
     
     if (tipoCliente === 'cliente') {
@@ -13,10 +14,10 @@ function aplicarDesconto() {
     else if(tipoCliente==='funcionarios'){
         desconto = 20;
     }
-
+    mensagemDeERRO="o que você digitou, não é valido"
     let valorComDesconto=valorCompra-(valorCompra*(desconto/100));
 
     document.getElementById('valorCompra').value=valorComDesconto.toFixed(2);
-    return desconto;
+    return desconto ?? mensagemDeERRO;
 
 }

@@ -2,8 +2,7 @@
 
 function calcula_lados(ladoA,ladoB,ladoC){
 
-    let resultado,erro=' ERRO:A forma não é um triangulo!';
-
+    let resultado,erro;
 
     if(ladoA===ladoB && ladoB===ladoC && ladoA===ladoC){
        
@@ -19,6 +18,10 @@ function calcula_lados(ladoA,ladoB,ladoC){
     else{        
             resultado =`${ladoA,ladoB,ladoC} Escaleno: os três lados do triângulo tem tamanhos diferentes`;
         }
-      
-       return resultado ?? erro;// ?? ele retorna o proximo valor valido no casa o "erro"
+
+       erro =' ERRO:A forma não é um triangulo!';
+       
+       return resultado ?? erro;
+
+       // ?? ele retorna o proximo valor valido no caso a variavel "erro"
 }
