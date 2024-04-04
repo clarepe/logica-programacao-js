@@ -13,16 +13,28 @@
         <h2 id="h2-principal">Copa Senai-Sp 2024</h2>
     </header>
     <main>
-        <label for="">Senai Feras Front-End</label>
-        <input type="number" id="senai" >
+        <label for="senai">Senai Feras Front-End</label>
+        <input type="number" id="senai">
         <p>X</p>
-        <label for="">Outro curso</label>
-        <input type="number" id="outro"  >
-        <button type="button">Finalizar partida</button>
+        <label for="outro">Outro curso</label>
+        <input type="number" id="outro">
+        <button type="button" id="FimDeJogo">Finalizar partida</button>
     </main>
+
+    <div id="placarDoJogo"></div>
     <footer>
         <p>Pagina criada por Claudiney Clayton Estudante do Curso de Devenvolvedor Front-End no <b>SENAI-SP - Conde José Vicente de Azevedo pela
             Ford-Enter</b>&reg;</p>
     </footer>
+
+    <script src="futebol.js"></script>
+    <script>
+        document.getElementById("FimDeJogo").addEventListener('click', () => {
+            const timeA = parseInt(document.getElementById("senai").value);
+            const timeB = parseInt(document.getElementById("outro").value);
+            const resultado = jogoFutebol(timeA, timeB);
+            document.getElementById("placarDoJogo").innerHTML = "Que jogão! O placar foi: Senai Feras Front-End " + timeA + " Outro curso " + timeB + ". Resultado: " + resultado;
+        });
+    </script>
 </body>
 </html>
