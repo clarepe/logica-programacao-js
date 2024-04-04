@@ -1,7 +1,8 @@
 
 
-function aplicarDesconto() {
-    let desconto;
+function aplicarDesconto(tipo,desconto) {
+
+    let tipoCliente;
     let mensagemDeERRO;
 
     

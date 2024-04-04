@@ -10,7 +10,7 @@
     <header>
         <h1 id="h1-principal">Programinhas "Ajuda aí"</h1>
         <button type="button" id="btIncial" onclick="openApp('index.html')">Página inicial</button>
-        <h2>Calculadora de Desconto</h2>
+        <h2 id="h2-principal">Calculadora de Desconto</h2>
         <label for="valorTotal">Valor Total da Compra:</label>
         <input type="number" id="valorTotal">
     </header>
@@ -20,31 +20,29 @@
         <select  id="codigoCliente">
             <option value="cliente">Cliente</option>
             <option value="clienteVip">Cliente Vip</option>
-            <option value="funcionarios">Funcionário</option>
+            <option value="funcionario">Funcionário</option>
         </select><br>
        
-         <button onclick="calcularDesconto()">Calcular Desconto</button>
-
-         <div id="resultado"></div>
+         <!-- <button onclick="calcularDesconto()">Calcular Desconto</button> -->
+        <button type="button" id="calcularDesconto">Calcular Desconto</button>
+         <div id="MostraResultado"></div>
              
 
     </main>
-    <script src="descontos_para_funcionarios.js"></script>
+    <script src="descontos_para_Funcionario.js"></script>
     <script>
        
-      document.querySelector('calcularDesconto').addEventListener('click', ()=>{
+      document.querySelector('#calcularDesconto').addEventListener('click', ()=>{
+            let selecinado = document.getElementById('codigoCliente');
+            let valorSelecionado = selecinado.value;
+            let pegacodigo =document.querySelector('#codigoCliente').value;
+            passaValor= pegacodigo,valorSelecionado;
 
-            const valorDoDesconto = {
-                cliente:0,        //   não tem desconto
-                clienteVip:10,    //   10% de desconto
-                funcionarios:20   //   20% de desconto
-            };
-            let elementoSelecionado=document.querySelector("codigoCliente");
-            let valorSelecionado=elementoSelecionado.value;
-            let desconto=desconto[elementoSelecionado];
-
-            document.querySelector("#resultado").innerHTML="Desconto:" + valorDoDesconto + "%";
+            document.querySelector('#MostraResultado').innerHTML =" Olá " +  valorSelecionado  + " o valor do desconto é :" + passaValor;
+         
       })
+
+
 
     </script>
     <footer>
