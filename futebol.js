@@ -1,5 +1,6 @@
 //3. Jogo de Futebol
-//Desenvolva um programa que receba do usuário o placar de um jogo de futebol (os gols de cada time), e informa se o resultado foi empate, vitória do primeiro time ou vitória do segundo time.
+//Desenvolva um programa que receba do usuário o placar de um jogo de futebol (os gols de cada time), e
+//  informa se o resultado foi empate, vitória do primeiro time ou vitória do segundo time.
 
 function jogoFutebol(timeLocal,timeVisitante){
 
@@ -9,6 +10,11 @@ function jogoFutebol(timeLocal,timeVisitante){
         if(local===visitante){
             resultado="empate";
         }
+        else if(local>visitante){
+            resultado="vitória do primeiro time";
+        }
+        else{resultado="vitória do segundo time";}
+        return resultado;
     }
 
 }

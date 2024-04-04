@@ -32,15 +32,16 @@
     <script src="descontos_para_Funcionario.js"></script>
     <script>
        
-      document.querySelector('#calcularDesconto').addEventListener('click', ()=>{
+        document.querySelector('#calcularDesconto').addEventListener('click', ()=>{
             let selecinado = document.getElementById('codigoCliente');
             let valorSelecionado = selecinado.value;
-            let pegacodigo =document.querySelector('#codigoCliente').value;
-            passaValor= pegacodigo,valorSelecionado;
-
-            document.querySelector('#MostraResultado').innerHTML =" Olá " +  valorSelecionado  + " o valor do desconto é :" + passaValor;
-         
-      })
+            let passValorTotal = document.getElementById('valorTotal');
+            let pegacodigo = document.querySelector('#codigoCliente').value;
+            passaValor = (pegacodigo,valorSelecionado );
+        
+            document.querySelector('#MostraResultado').innerHTML = "Olá " + valorSelecionado + ", o valor do desconto é: " + passValorTotal.value;
+        })
+        
 
 
 
