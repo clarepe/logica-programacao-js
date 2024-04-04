@@ -5,9 +5,9 @@ function jogoFutebol(local, visitante) {
     if (local === visitante) {
         resultado = "empate";
     } else if (local > visitante) {
-        resultado = "vitória do primeiro time";
+        resultado = "vitória do Senai Feras Front-End";
     } else {
-        resultado = "vitória do segundo time";
+        resultado = "vitória do Outro curso";
     }
 
     return resultado;
