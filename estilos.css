@@ -14,7 +14,9 @@ body {
     background-color: #e5c15e;
     color: #f0f8ff;
     font-family: Arial, sans-serif; /* Caso as fontes importadas não estejam disponíveis */
-    
+    border: 3px solid #007bff;
+    margin: 12px 12px;
+    border-radius: 8px;
 }
 
 footer {
@@ -24,21 +26,48 @@ footer {
     margin-top: auto; /* Empurra o rodapé para o final da página */
 
 }
-
-
-
-#controla-Buttons {
+ul{
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* flex-direction: column; */
-    margin: 20px 5%;
-    background-color:  #007bff;
-    border-radius: 2px;
-    border-color: crimson;
-    box-shadow: 1px 1px black;
-    /* margin-left: 300px; */
-    
+    justify-content: center;
+    list-style-type: none;
+    padding: 0; /* Removido o espaçamento interno para evitar inconsistências de layout */
+    margin: 0; /* Removido o espaçamento externo para evitar inconsistências de layout */
+    flex-wrap: wrap; /* Permite que os itens sejam distribuídos em várias linhas quando necessário */
+  
+}
+a{  
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Adicionado para centralizar verticalmente o conteúdo */
+    text-decoration: none;
+    background-color: #89deed;
+    box-shadow: 2px 2px #0000006b;
+    border-radius: 3px;
+    margin: 4px; /* Aumentado um pouco o espaçamento entre os itens */
+    color: #ffffff;
+    font-family: "Londrina Solid", sans-serif;
+    padding: 10px;
+    text-shadow: 1px 1px black;
+    flex: 1; /* Faz com que os itens se expandam para ocupar todo o espaço disponível */
+}
+a:hover {
+    background-color: #00ee08;
+    color: white;
+}
+#controla-Buttons  {
+    font-size: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-left: 500px;
+    margin-right: 500px;
+    box-shadow: 2px 2px  #0000006b;
+    background-color: #007bff;
+    border-radius: 3px;    
+    padding: 25px;
+    flex-wrap: wrap;
+   
 }
 
 button {
@@ -47,13 +76,14 @@ button {
     font-size: 1rem; /* Alterado para unidade relativa */
     border: none;
     border-radius: 2px;
-    background-color:#451ea7;
+    background-color: rgba(0, 0, 255, 0.397);
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     text-shadow: .9px .1px .1px black;
+   
     
 }
 
@@ -68,6 +98,7 @@ button:hover {
     background-color: #007bff;
     font-family: "Londrina Solid", sans-serif;
     text-shadow: .9px .1px .1px black;
+    border-radius: 2px;
 }
 
 #h2-principal {
