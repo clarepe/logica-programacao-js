@@ -12,26 +12,57 @@
         <h2 id="h2-principal">Foco Fitness Center</h2>
     </header>
     <main>
-        <section class="menu">
-            <button type="button" id="btBusca">Busca</button>
-            <label for="nomeBusca">Digite o nome para busca:</label>
-            <input type="text" id="nomeBusca">
-            <div id="nomeBuscado"></div>
-        </section>
+        
 <hr>
 
-        <section class="cadastro">
+        <form class="cadastro">
             <h2>Cadastro</h2>
-            <label for="">Nome do aluno</label>
-            <input type="text" id="nome">
+            <label for="nome">Nome do aluno</label>
+            <input type="text" id="nome" required autofocus>
 
-            <label for="">Idade</label>
-            <input type="date" id="data">
-            <button type="submit"></button>
+            <button type="reset" id="btCadastrar">Cadastrar</button>
+            <button type="button" id="btMostrar">Mostrar</button>
 
-        </section>
-
+        </form>
+        <div id="mostraNomes"></div>
     </main>
+    <script>
+      
+        let nomes=[];
+        document.querySelector('#btCadastrar').addEventListener('click',()=>{
+            
+            // nomes.push( document.querySelector('#nome').value);
+            
+            if(nomes.length <10){
+                nomes.unshift( document.querySelector('#nome').value);
+            }
+            else{
+                
+                if(nomes.includes( document.querySelector('#nome').value)){
+
+                }
+                else{
+
+                }
+            }
+            
+        });
+
+        document.querySelector('#btMostrar').addEventListener('click',()=>{
+           
+            nomes.forEach((nome)=>{
+            document.querySelector('#mostraNomes').innerHTML+= nome + '<br>';
+            });
+            
+        });
+
+        
+        //TODO:
+        //1. Ao clicar em cadastrar, limpar o input
+        //2.Limitar a 10 nomes
+        //3.Após o 10º nome, o campo permitir buscar um nome no array
+        //4. exibir o nome 
+    </script>
 </body>
 </html>
 

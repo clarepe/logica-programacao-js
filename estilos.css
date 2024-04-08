@@ -1,11 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Englebert&family=Londrina+Solid:wght@100;300;400;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap'); /*font-family: "Rubik Vinyl", system-ui;*/
+
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+#mostraNomes,.cadastro{
+    font-family:"Londrina Solid";
+    margin-left: 12px;
+    
 }
 body {
     display: flex;
