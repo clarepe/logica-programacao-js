@@ -16,44 +16,63 @@
 <hr>
 
         <form class="cadastro">
+
             <h2>Cadastro</h2>
+
             <label for="nome">Nome do aluno</label>
             <input type="text" id="nome" required autofocus>
 
             <button type="reset" id="btCadastrar">Cadastrar</button>
-            <button type="button" id="btMostrar">Mostrar</button>
+            <button type="button" id="btPesquisar" class="oculto">Pesquisar</button>
 
         </form>
+
         <div id="mostraNomes"></div>
+
     </main>
     <script>
-      
-        let nomes=[];
-        document.querySelector('#btCadastrar').addEventListener('click',()=>{
-            
-            // nomes.push( document.querySelector('#nome').value);
-            
-            if(nomes.length <10){
-                nomes.unshift( document.querySelector('#nome').value);
-            }
-            else{
-                
-                if(nomes.includes( document.querySelector('#nome').value)){
 
+        let nomes=[];
+
+        document.addEventListener('keydown',(evento) => {
+            if(evento.key === 'Enter'){
+                evento.preventDefault();
+
+                if(nomes.length <2){
+                    document.querySelector('#btCadastrar').click();
                 }
                 else{
-
+                    document.querySelector('#btPesquisar').click();
                 }
             }
+        })
+      
+        
+        document.querySelector('#btCadastrar').addEventListener('click',()=>{
             
+            nomes.push( document.querySelector('#nome').value);
+            
+            if(nomes.length ===2){
+               
+               
+                document.querySelector('label[ for="nome"]').innerHTML = 'Nome para Pesquisa';
+                document.querySelector('#btCadastrar').classList.add('oculto');
+                document.querySelector('#btPesquisar').classList.remove('oculto');
+
+            }
+           
         });
 
-        document.querySelector('#btMostrar').addEventListener('click',()=>{
+        document.querySelector('#btPesquisar').addEventListener('click',() =>{
            
-            nomes.forEach((nome)=>{
-            document.querySelector('#mostraNomes').innerHTML+= nome + '<br>';
-            });
-            
+            const nomeBuscado = document.querySelector('#nome').value;
+
+            if(nomes.includes(nomeBuscado)){
+                document.querySelector('#mostraNomes').innerHTML = `ACHEI na posição ${nomes.indexOf(nomeBuscado)}, "${nomes[nomes.indexOf(nomeBuscado)]}"`;
+            }
+            else{
+                document.querySelector('#mostraNomes').innerHTML ='NÃO ACHEI!';
+            }
         });
 
         

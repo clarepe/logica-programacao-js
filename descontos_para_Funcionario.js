@@ -18,5 +18,5 @@ function aplicarDesconto(tipo, desconto, valorCompra) {
 
     document.getElementById('valorCompra').value = valorComDesconto.toFixed(2);
 
-    return desconto ?? mensagemDeERRO;
+    return valorCompra ?? mensagemDeERRO;
 }
