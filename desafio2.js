@@ -1,4 +1,4 @@
-function calculaImc(peso,altura) {
+function calculaIMC(peso,altura) {
     const imc = peso / altura ** 2; //a linha altura ** 2 está elevando o valor da variável altura ao quadrado. Isso é equivalente a altura * altura. No contexto do cálculo do IMC, isso é necessário porque a fórmula do IMC requer a altura ao quadrado.
     let mensagem;
     if (imc <= 18.5) {

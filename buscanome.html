@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foco Fitness Center</title>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
     <header>
         <h1 id="h1-principal">Central App's</h1>
         <h2 id="h2-principal">Foco Fitness Center</h2>
+        <button type="button" id="btIncial" onclick="location.href='index.html'">Página inicial</button>
     </header>
     <main>
         
 <hr>
 
-        <form class="cadastro">
+        <form class="baseGeral">
 
             <h2>Cadastro</h2>
 
             <label for="nome">Nome do aluno</label>
             <input type="text" id="nome" required autofocus>
-
+            <button type="button" id="btIncial" onclick="location.href='index.html'">Página inicial</button>
             <button type="reset" id="btCadastrar">Cadastrar</button>
             <button type="button" id="btPesquisar" class="oculto">Pesquisar</button>
 
@@ -38,7 +40,7 @@
             if(evento.key === 'Enter'){
                 evento.preventDefault();
 
-                if(nomes.length <2){
+                if(nomes.length <10){
                     document.querySelector('#btCadastrar').click();
                 }
                 else{
@@ -52,7 +54,7 @@
             
             nomes.push( document.querySelector('#nome').value);
             
-            if(nomes.length ===2){
+            if(nomes.length ===10){
                
                
                 document.querySelector('label[ for="nome"]').innerHTML = 'Nome para Pesquisa';

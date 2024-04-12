@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Copa Senai-Sp 2024</title>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
     <header>
         <h1 id="h1-principal">Central App's</h1>
-        <button type="button" id="btIncial" onclick="openApp('index.html')">Página inicial</button>
         <h2 id="h2-principal">Copa Senai-Sp 2024</h2>
+        <button type="button" id="btIncial" onclick="location.href='index.html'">Página inicial</button>
     </header>
-    <main>
+    <hr>
+    <main class="baseGeral">
+        <label for="valorTotal">Valor Total da Compra:</label>
+        <input type="number" id="valorTotal">
         <label for="senai">Senai Feras Front-End</label>
         <input type="number" id="senai">
         <p>X</p>
