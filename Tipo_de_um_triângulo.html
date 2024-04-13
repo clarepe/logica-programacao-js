@@ -27,13 +27,12 @@
 
         <button type="button" id="btClassificar">Classificar</button>
         <button type="button" id="btlimpar">Limpar</button>
-         <div id="resultados"></div>
+         
     </main>
+    <div id="resultados" class="resultado"></div>
     <script src="triangulo.js"></script>
 <script>
-     function openApp(url) {
-            window.location.href = url;
-        }
+      
     
     document.querySelector("#btClassificar").addEventListener('click', ()=>{
         const lado1 = document.querySelector('#ladoA').value;
