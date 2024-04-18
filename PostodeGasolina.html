@@ -14,34 +14,66 @@
         <button type="button" id="btIncial" onclick="location.href='index.html'">Página inicial</button>
     </header>
     <main class="baseGeral">
-        <h2>Tabelade preços</h2>
 
+      <label for="combustivel">Escolha o combustivel:</label>
+
+      <select id="combustivel" name="combustivel">
+        <option value="Álcool">Álcool</option>
+        <option value="Gasolina">Gasolina</option>        
+      </select>
+      
+       <label for="litros">Litros</label>
+       <input type="number" id="litros">
+
+       <button type="button" id="btAbastecer">Abastecer</button>
+    </main>
+    <aside>
+      <div id="estiloTabela">
+        <h2>Tabela de preços</h2>
+          
         <table>
-
           <thead>
-            
             <tr>
-
               <th>Produto</th>
-              <th>Quantidade</th>
-              <th>até 20 litros</th>
-              <th>até 20 litros</th>
+              <th>Preço</th>          
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Álcool</td>
-              <td>Acima de 20 litros</td>
-              <td>3%</td>
+              <td>Álcool</td>     
+              <td>R$ 2,89</td>         
             </tr>
             <tr>
-                <td>Gasolina</td>
-            </tr>
-           
+              <td>Gasolina</td>
+              <td>R$ 5,19</td>
         </table>
-        
-    </main>
+  
+      </div>
+    </aside>
+    <div id="precoFinal" class="resultado"></div>
+<script>
 
+//Entrada de dados 
+document.querySelector('#btAbastecer').addEventListener('click',()=>{
+
+  const Litros = document.getElementById('litros'); 
+    
+  const preco = parseFloat
+
+ //Cálculo-do-valor-total-a-ser-pago
+
+  const valorTotal = calcularValorTotal(litros, preco, tipoCombustivel);
+
+})
+
+
+//Cálculo do valor total a ser pago  
+const valorTotal = calcularValorTotal(litros, preco, tipoCombustivel);
+
+//Impressão do resultado  
+console.log(`O valor total a ser pago é: R$ ${valorTotal.toFixed(2)}`);
+
+</script>
 
 
     <footer>
