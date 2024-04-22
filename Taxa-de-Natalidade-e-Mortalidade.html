@@ -6,8 +6,35 @@
     <title>Taxas de crescimento vegetativo (CV)</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="estilos.css">
-</head>
-<body>
+
     
+    
+    <body>
+        <header>
+            <h1 id="h1-principal">Central App's</h1>
+            <h2 id="h2-principal">Ipiranga</h2>
+            <button type="button" id="btIncial" onclick="location.href='index.html'">Página inicial</button>
+        </header>
+        <hr>
+        <main class="baseGeral">
+        
+            <label for="habitantes">Habitantes</label>
+            <input type="number" name="habitantes" class="habitantes">
+
+            <label for="nascimentos">Nascimentos</label>
+            <input type="number" name="nascimentos" class="nascimentos">
+
+            <label for="obitos">Óbitos</label>
+            <input type="number" name="obitos" class="obitos">
+
+            <select id="taxaEscolhida">
+                <option value="n">Taxa de Natalidade </option>
+                <option value="M">Taxa de Mortalidade</option>
+            </select>
+
+            <button type="button">Calcular Indicadores</button>
+
+        </main>
+        <div id="Indicadores" class="resultado"></div>
 </body>
 </html>
