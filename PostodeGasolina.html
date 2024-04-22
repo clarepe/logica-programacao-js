@@ -62,17 +62,21 @@
     
     <div id="precoFinal" class="resultado"></div>
 <script>
+
 document.querySelector('#btAbastecer').addEventListener('click',()=>{
        // Pega o valor dos litros
       let litros = parseFloat(document.querySelector('#litros').value);
 
       // Verifica qual combustível foi escolhido e define o preço
-      let precoPorLitro, precoSemDesconto;
+      let precoPorLitro, precoSemDesconto, tipoCombustivel;
+      
       if (document.querySelector('#alcool').checked){
         precoPorLitro = 2.89; // o (.) para representar números decimais
+        tipoCombustivel="alcool"
       }
       else if (document.querySelector('#Gasolina').checked){
         precoPorLitro = 5.19; // o (.) para representar números decimais
+        tipoCombustivel="gasolina"
       }
       else {
         alert('Por favor, selecione um tipo de combustível.'); // mensagem para alert()
@@ -82,26 +86,42 @@ document.querySelector('#btAbastecer').addEventListener('click',()=>{
       // Calcula o preço total
       let precoTotal = litros * precoPorLitro;
 
-      // Aplica desconto se o litro for maior que 20
-     
-       
-  
       // Exibe o preço no campo de texto
       document.getElementById('preco').value = precoTotal.toFixed(2);
   
       // Exibe o preço final na div
       let precoFinalComDesconto = precoTotal;
 
-      if (litros<=20){
+      if (tipoCombustivel==='alcool' && litros<=20){
         
-        precoFinalComDesconto = (precoTotal * 0.3).toFixed(2); // Aplica desconto de 3%
+        precoFinalComDesconto = (precoTotal * 0.3 / 100).toFixed(2); // Aplica desconto de 3%
+        document.getElementById('precoFinal').textContent = "o total de " + tipoCombustivel + " abastecido ficou R$ " + precoTotal + " sem desconto, Mas você recebeu um desconto 3% por litro e o preço final ficou: R$ " + precoFinalComDesconto;
+      }
 
-        document.getElementById('precoFinal').textContent = "Você recebeu um desconto de 3% por litro: R$ " + precoFinalComDesconto;
+      else if (tipoCombustivel==='alcool'&& litros >= 20) {
+
+        precoFinalComDesconto = (precoTotal * 0.5 / 100 ).toFixed(2); // Aplica desconto de 10%
+        document.getElementById('precoFinal').textContent = "o total de " + tipoCombustivel + " abastecido ficou R$ " + precoTotal + " sem desconto, Mas você recebeu um desconto  5% por litro e o preço final ficou: R$ " + precoFinalComDesconto;
       }
-      else if (litros >= 20) {
-        precoFinalComDesconto = (precoTotal * 0.5).toFixed(2); // Aplica desconto de 10%
-        document.getElementById('precoFinal').textContent = "Preço final com desconto: R$ " + precoFinalComDesconto;
+
+      else{
+        document.getElementById('precoFinal').textContent = "Preço final: R$ " + precoFinalComDesconto.toFixed(0.00);
       }
+      
+      
+      if (tipoCombustivel==='Gasolina' && litros<=20){
+        
+        precoFinalComDesconto = (precoTotal * 0.3 / 100).toFixed(2); // Aplica desconto de 3%
+
+        document.getElementById('precoFinal').textContent = "o total de " + tipoCombustivel + " abastecido ficou R$ " + precoTotal + " sem desconto, Mas você recebeu um desconto 3% por litro e o preço final ficou: R$ " + precoFinalComDesconto;
+      }
+
+      else if (tipoCombustivel==='Gasolina'&& litros >= 20) {
+
+        precoFinalComDesconto = (precoTotal * 0.5 / 100 ).toFixed(2); // Aplica desconto de 10%
+        document.getElementById('precoFinal').textContent = "o total de " + tipoCombustivel + " abastecido ficou R$ " + precoTotal + " sem desconto, e tem um final com desconto: R$ " + precoFinalComDesconto;
+      }
+
       else{
         document.getElementById('precoFinal').textContent = "Preço final: R$ " + precoFinalComDesconto.toFixed(0.00);
       }
