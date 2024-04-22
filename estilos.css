@@ -45,6 +45,7 @@
     
 
 }
+
 .baseGeral {
 
     width: 85%; /* Defina a largura desejada */
@@ -98,6 +99,7 @@
 }
 body{
     background-color: var( --corClara1);
+    font-family: var(--fontEspecial);
 }
 nav{
     display: flex;
@@ -178,10 +180,5 @@ table {
   }
  
   
-  /* seletor que seleciona todas as linhas pares (even) dentro de uma tabela (tr). 
-  Isso significa que ele aplicará 
-  um estilo a cada segunda linha da tabela. */
   
-  /* tr:nth-child(even) {
-    background-color: var(--corMedia1);
-  } */
+ 
