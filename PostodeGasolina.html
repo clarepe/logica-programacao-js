@@ -4,135 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desconto no posto</title>
-    <link rel="stylesheet" href="reset.css">
+    <!-- Estilos e reset CSS podem ser incluídos aqui -->
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <header>
-        <h1 id="h1-principal">Central App's</h1>
-        <h2 id="h2-principal">Posto ipiranga </h2>
-        <button type="button" id="btIncial" onclick="location.href='index.html'">Página inicial</button>
-        <div id="estiloTabela">
-          <h2>Tabela de preços</h2>
-            
-          <table>
-            <thead>
-              <tr>
-                <th>Produto</th>
-                <th>Preço</th>          
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Álcool</td>     
-                <td>R$ 2,89</td>         
-              </tr>
-              <tr>
-                <td>Gasolina</td>
-                <td>R$ 5,19</td>
-              </tr>
-            </tbody> <!-- Adicionado o fechamento da tag tbody -->
-          </table>
-        </div> <!-- Fechamento da div #estiloTabela -->
-    </header>
-    <main class="baseGeral">
-      
-      <label for="combustivel">Escolha o combustível:</label>
-
-      <form>
-
-        <label for="alcool">Álcool:</label>
-        <input type="checkbox" name="alcool" id="alcool">
-
-        <label for="gasolina">Gasolina:</label>
-        <input type="checkbox" name="gasolina" id="Gasolina">
-
-      </form> 
-     
-      
-       <label for="litros">Litros</label>
-       <input type="number" id="litros">
-
-       <label for="preco">Preço</label>
-       <input type="text" id="preco" readonly>
-
-       <button type="button" id="btAbastecer">Abastecer</button>
-
-    </main>
+  <header>
+    <h1 id="h1-principal">Central App's</h1>
+    <h2 id="h2-principal">Ipiranga</h2>
+    <button type="button" id="btIncial" onclick="location.href='index.html'">Página inicial</button>
+</header>
+<hr>
+<div id="estiloTabela">
+  <h2>Tabela de preços</h2>
     
+  <table>
+    <thead>
+      <tr>
+        <th>Produto</th>
+        <th>Preço</th>          
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Álcool</td>     
+        <td>R$ 2,89</td>         
+      </tr>
+      <tr>
+        <td>Gasolina</td>
+        <td>R$ 5,19</td>
+      </tr>
+    </tbody> <!-- Adicionado o fechamento da tag tbody -->
+  </table>
+</div> <!-- Fechamento da div #estiloTabela -->
+    <main class="baseGeral">
+        <label for="combustivel">Escolha o combustível:</label>
+        <form>
+            <label for="alcool">Álcool:</label>
+            <input type="checkbox" name="alcool" id="alcool">
+            <label for="gasolina">Gasolina:</label>
+            <input type="checkbox" name="gasolina" id="gasolina">
+        </form>
+        <label for="litros">Litros</label>
+        <input type="number" id="litros">
+        <label for="preco">Preço</label>
+        <input type="text" id="preco" readonly>
+        <button type="button" id="btAbastecer">Abastecer</button>
+    </main>
     <div id="precoFinal" class="resultado"></div>
-<script>
+    <script>
+        document.querySelector('#btAbastecer').addEventListener('click', () => {
+            let litros = parseFloat(document.querySelector('#litros').value);
+            let precoPorLitro, tipoCombustivel;
 
-document.querySelector('#btAbastecer').addEventListener('click',()=>{
-       // Pega o valor dos litros
-      let litros = parseFloat(document.querySelector('#litros').value);
+            if (document.querySelector('#alcool').checked) {
+                precoPorLitro = 2.89;
+                tipoCombustivel = "álcool";
+            } else if (document.querySelector('#gasolina').checked) {
+                precoPorLitro = 5.19;
+                tipoCombustivel = "gasolina";
+            } else {
+                alert('Por favor, selecione um tipo de combustível.');
+                return;
+            }
 
-      // Verifica qual combustível foi escolhido e define o preço
-      let precoPorLitro, precoSemDesconto, tipoCombustivel;
-      
-      if (document.querySelector('#alcool').checked){
-        precoPorLitro = 2.89; // o (.) para representar números decimais
-        tipoCombustivel="alcool"
-      }
-      else if (document.querySelector('#Gasolina').checked){
-        precoPorLitro = 5.19; // o (.) para representar números decimais
-        tipoCombustivel="gasolina"
-      }
-      else {
-        alert('Por favor, selecione um tipo de combustível.'); // mensagem para alert()
-        return; // Se nenhum tipo de combustível foi selecionado, sai da função
-      }
+            let precoTotal = litros * precoPorLitro;
+            document.getElementById('preco').value = precoTotal.toFixed(2);
 
-      // Calcula o preço total
-      let precoTotal = litros * precoPorLitro;
+            let desconto;
 
-      // Exibe o preço no campo de texto
-      document.getElementById('preco').value = precoTotal.toFixed(2);
-  
-      // Exibe o preço final na div
-      let precoFinalComDesconto = precoTotal;
+            if (litros <= 20) {
+                desconto = (tipoCombustivel === 'álcool') ? 3 : 4;
+            } else {
+                desconto = (tipoCombustivel === 'álcool') ? 5 : 6;
+            }
 
-      if (tipoCombustivel==='alcool' && litros<=20){
-        
-        precoFinalComDesconto = (precoTotal * 0.3 / 100).toFixed(2); // Aplica desconto de 3%
-        document.getElementById('precoFinal').textContent = "o total de " + tipoCombustivel + " abastecido ficou R$ " + precoTotal + " sem desconto, Mas você recebeu um desconto 3% por litro e o preço final ficou: R$ " + precoFinalComDesconto;
-      }
+            let descontoTotal = precoTotal * (desconto / 100);
+            let precoFinalComDesconto = precoTotal - descontoTotal;
 
-      else if (tipoCombustivel==='alcool'&& litros >= 20) {
-
-        precoFinalComDesconto = (precoTotal * 0.5 / 100 ).toFixed(2); // Aplica desconto de 10%
-        document.getElementById('precoFinal').textContent = "o total de " + tipoCombustivel + " abastecido ficou R$ " + precoTotal + " sem desconto, Mas você recebeu um desconto  5% por litro e o preço final ficou: R$ " + precoFinalComDesconto;
-      }
-
-      else{
-        document.getElementById('precoFinal').textContent = "Preço final: R$ " + precoFinalComDesconto.toFixed(0.00);
-      }
-      
-      
-      if (tipoCombustivel==='Gasolina' && litros<=20){
-        
-        precoFinalComDesconto = (precoTotal * 0.3 / 100).toFixed(2); // Aplica desconto de 3%
-
-        document.getElementById('precoFinal').textContent = "o total de " + tipoCombustivel + " abastecido ficou R$ " + precoTotal + " sem desconto, Mas você recebeu um desconto 3% por litro e o preço final ficou: R$ " + precoFinalComDesconto;
-      }
-
-      else if (tipoCombustivel==='Gasolina'&& litros >= 20) {
-
-        precoFinalComDesconto = (precoTotal * 0.5 / 100 ).toFixed(2); // Aplica desconto de 10%
-        document.getElementById('precoFinal').textContent = "o total de " + tipoCombustivel + " abastecido ficou R$ " + precoTotal + " sem desconto, e tem um final com desconto: R$ " + precoFinalComDesconto;
-      }
-
-      else{
-        document.getElementById('precoFinal').textContent = "Preço final: R$ " + precoFinalComDesconto.toFixed(0.00);
-      }
-      
-});
-</script>
-
-<footer>
-    <p>Página criada por Claudiney Clayton Estudante do Curso de Devenvolvedor Front-end no <b>SENAI-SP - Conde José Vicente de Azevedo pela Ford-Enter</b>&reg;</p>
-</footer>
-
+            document.getElementById('precoFinal').textContent = `O total de ${tipoCombustivel} abastecido ficou R$ ${precoTotal.toFixed(2)} sem desconto. Você recebeu um desconto de ${desconto}% por litro e o preço final ficou: R$ ${precoFinalComDesconto.toFixed(2)}`;
+        });
+    </script>
+    <footer>
+        <p>Página criada por Claudiney Clayton Estudante do Curso de Desenvolvedor Front-end no SENAI-SP - Conde José Vicente de Azevedo pela Ford-Enter®</p>
+    </footer>
 </body>
-
 </html>
