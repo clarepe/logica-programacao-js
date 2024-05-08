@@ -12,7 +12,7 @@
     <body>
         <header>
             <h1 id="h1-principal">Central App's</h1>
-            <h2 id="h2-principal">Ipiranga</h2>
+            <h2 id="h2-principal">Taxas de crescimento vegetativo (CV)</h2>
             <button type="button" id="btIncial" onclick="location.href='index.html'">Página inicial</button>
         </header>
         <hr>
@@ -27,14 +27,55 @@
             <label for="obitos">Óbitos</label>
             <input type="number" name="obitos" class="obitos">
 
-            <select id="taxaEscolhida">
-                <option value="n">Taxa de Natalidade </option>
-                <option value="M">Taxa de Mortalidade</option>
-            </select>
-
-            <button type="button">Calcular Indicadores</button>
+             
+            <label for="combustivel">Taxa CV:</label>
+            <form id="taxaEscolhida">
+                <label for="TaxaNatalidade">Taxa de Natalidade</label>
+                <input type="checkbox" name="TaxaNatalidade" id="Taxa-de-Natalidade">
+                <label for="TaxaMortalidade">Taxa de Mortalidade</label>
+                <input type="checkbox" name="TaxaMortalidade" id="Taxa-de-Mortalidade">
+            </form>
+            <button type="button" id="btCalcular">Calcular Indicadores</button>
 
         </main>
         <div id="Indicadores" class="resultado"></div>
-</body>
+    <script>
+    document.querySelector('#btCalcular').addEventListener('click', () => {
+        // Obtém os valores dos inputs
+        let habitantes = parseInt(document.querySelector('.habitantes').value);
+        let nascimentos = parseInt(document.querySelector('.nascimentos').value);
+        let obitos = parseInt(document.querySelector('.obitos').value);
+
+        // Verifica se pelo menos uma opção foi selecionada
+        let taxaNatalidadeSelecionada = document.querySelector('#Taxa-de-Natalidade').checked;
+        let taxaMortalidadeSelecionada = document.querySelector('#Taxa-de-Mortalidade').checked;
+        const pasando = calcularTaxaNatalidade(nascimentos,habitantes)
+        
+
+
+        if(taxaNatalidadeSelecionada){
+
+            document.getElementById("Indicadores").innerHTML = "A TAXA DE NATALIDADE É : " + pasando + "1212";
+        }
+        else if(taxaMortalidadeSelecionada){
+            document.getElementById("Indicadores").innerHTML = "A TAXA DE NATALIDADE É : " + pasando + "1212"
+        }
+        else {
+            alert("Selecione pelo menos uma opção de taxa.");
+            return;
+        };
+        
+    })
+
+
+
+
+    </script>
+
+        <footer>
+            <p>Pagina criada por Claudiney Clayton Estudante do Curso de Devenvolvedor Front-End no <b>SENAI-SP - Conde José Vicente de Azevedo pela
+                Ford-Enter</b>&reg;</p>
+        </footer>
+    </body>
+
 </html>

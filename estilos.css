@@ -178,7 +178,11 @@ table {
   tr {
     background-color: #f2f2f2;
   }
- 
+  @media only screen and (max-width: 768px) {
+    .baseGeral {
+        flex-direction: column; /* Altera a direção dos elementos para coluna */
+    }
+}
   
   
  
