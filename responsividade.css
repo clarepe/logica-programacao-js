@@ -1,0 +1,18 @@
+/* tamanhos de telas
+mobile: até 400px
+tablets: até 768px
+TVs: de 1921px ao infinito
+
+
+
+*/
+
+/* mobile */
+@media screen and (max-width: 400px){
+}
+ /* tablets */
+@media screen and (max-width: 768px){
+}
+/* TVs */
+@media screen and (min-width:1921px){
+}
